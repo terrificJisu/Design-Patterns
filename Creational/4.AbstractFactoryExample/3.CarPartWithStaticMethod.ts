@@ -1,4 +1,4 @@
-import { HondaFactory, MazdaFactory } from "./ConcreteFactories";
+import { HondaFactory, MazdaFactory } from "./2.ConcreteFactories";
 
 enum Car {
   HONDA,

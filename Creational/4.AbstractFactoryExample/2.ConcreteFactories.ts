@@ -1,4 +1,4 @@
-import { CarPart } from "./CarPart";
+import { CarPart } from "./1.CarPart";
 
 //Concrete Honda Factory derived from abstract CarPart
 export class HondaFactory extends CarPart {

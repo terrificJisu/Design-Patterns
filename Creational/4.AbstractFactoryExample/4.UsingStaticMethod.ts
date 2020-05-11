@@ -1,4 +1,4 @@
-import { CarPart } from "./CarPartWithStaticMethod";
+import { CarPart } from "./3.CarPartWithStaticMethod";
 
 enum Car {
   HONDA,

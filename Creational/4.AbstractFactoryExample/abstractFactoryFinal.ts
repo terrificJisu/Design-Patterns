@@ -7,25 +7,24 @@ enum Car {
   MAZDA,
 }
 
-abstract class CarPart{
+abstract class CarPart {
+  static getFactory(key: Car) {
+    const hondaFactory = new HondaFactory();
+    const mazdaFactory = new MazdaFactory();
 
-  static getFactory(key:Car){
-      const hondaFactory = new HondaFactory();
-      const mazdaFactory = new MazdaFactory();
+    switch (key) {
+      case Car.HONDA:
+        return hondaFactory;
+        break;
 
-      switch (key) {
-          case Car.HONDA:
-              return hondaFactory;
-              break;
+      case Car.MAZDA:
+        return mazdaFactory;
+        break;
 
-          case Car.MAZDA:
-              return mazdaFactory;
-              break;
-      
-          default:
-              return mazdaFactory;
-              break;
-      }
+      default:
+        return mazdaFactory;
+        break;
+    }
   }
 
   abstract getLeftDoor();
@@ -33,53 +32,52 @@ abstract class CarPart{
 }
 
 class HondaRightDoor {
-  makePart(){
-      return 'Im Honda Right Door ';
+  makePart() {
+    return "Im Honda Right Door ";
   }
 }
 class HondaLeftDoor {
-  makePart(){
-      return 'Im Honda Left Door';
+  makePart() {
+    return "Im Honda Left Door";
   }
 }
 class MazdaRightDoor {
-  makePart(){
-      return 'Im Mazda Right Door ';
+  makePart() {
+    return "Im Mazda Right Door ";
   }
 }
 class MazdaLeftDoor {
-  makePart(){
-      return 'Im Mazda Left Door';
+  makePart() {
+    return "Im Mazda Left Door";
   }
 }
 
-class HondaFactory extends CarPart{
+class HondaFactory extends CarPart {
   getLeftDoor() {
-      return new HondaLeftDoor();
-  }    
-  
+    return new HondaLeftDoor();
+  }
+
   getRightDoor() {
-      return new HondaRightDoor();
+    return new HondaRightDoor();
   }
 }
 
-class MazdaFactory extends CarPart{
+class MazdaFactory extends CarPart {
   getLeftDoor() {
-      return new MazdaLeftDoor;
-  }    
-  
+    return new MazdaLeftDoor();
+  }
+
   getRightDoor() {
-      return new MazdaRightDoor;
+    return new MazdaRightDoor();
   }
 }
 
-
-let factory =  CarPart.getFactory(Car.HONDA);
+let factory = CarPart.getFactory(Car.HONDA);
 let rightdoor = factory.getRightDoor();
 
 console.log(rightdoor.makePart());
 
-factory =  CarPart.getFactory(Car.MAZDA);
+factory = CarPart.getFactory(Car.MAZDA);
 rightdoor = factory.getRightDoor();
 let leftdoor = factory.getLeftDoor();
 
